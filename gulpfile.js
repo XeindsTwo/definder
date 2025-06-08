@@ -100,7 +100,7 @@ function styles() {
     .pipe(scss({
       outputStyle: 'compressed'
     }))
-    .pipe(concat('style.min.css'))
+    .pipe(concat('light.css'))
     .pipe(autoprefixer({
       overrideBrowserslist: ['last 10 version'],
       grid: true
@@ -118,7 +118,7 @@ function watching() {
 
 function build() {
   return src([
-    'app/css/style.min.css',
+    'app/css/light.css',
     'app/fonts/**/*',
     'app/js/main2405.min.js',
     'app/*.html'
