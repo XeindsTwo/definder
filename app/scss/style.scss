@@ -4,7 +4,8 @@
 @import 'basic/mixin';
 @import 'basic/global';
 @import 'basic/footer';
-@import 'basic/verify';
-@import 'basic/user-steps';
+@import 'home/verify';
+@import 'home/user-steps';
 
 @import "home/main";
+@import "home/start";

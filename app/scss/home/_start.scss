@@ -1,0 +1,33 @@
+.start {
+  background-color: #0B0F1A;
+  height: 100vh;
+  padding: 30px 30px;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+
+  img {
+    margin: 0 auto 135px;
+  }
+
+  &__title {
+    font-family: $dmSans;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 115%;
+    max-width: 300px;
+    margin: 0 auto 18px;
+    letter-spacing: -1.08px;
+  }
+
+  &__text {
+    font-size: 22px;
+    color: rgba($white, .6);
+    max-width: 250px;
+    font-weight: 500;
+    margin: 0 auto;
+    line-height: 1.15;
+  }
+}

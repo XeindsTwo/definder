@@ -20,22 +20,18 @@ if (platform.includes('win')) {
   osName = "macos";
 }
 
-// Проверяем мобильное устройство (телефон/планшет)
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
 if (isMobile) {
-  // Показываем экран для мобил
   const mobileScreen = document.getElementById('mobile-screen');
   if (mobileScreen) mobileScreen.style.display = 'block';
 
-  // Скрываем основной контент и футер
   const mainSection = document.querySelector('section.main');
   if (mainSection) mainSection.style.display = 'none';
 
   const footer = document.querySelector('footer.footer');
   if (footer) footer.style.display = 'none';
 } else {
-  // Для десктопа можно показать/скрыть по умолчанию или ничего не менять
   const mobileScreen = document.getElementById('mobile-screen');
   if (mobileScreen) mobileScreen.style.display = 'none';
 
@@ -117,6 +113,37 @@ const translations = {
   }
 };
 
+const localizedWords = {
+  press: {
+    en: 'Press',
+    es: 'Presione',
+    pt: 'Pressione',
+    fr: 'Appuyez sur',
+    zh: '按下'
+  },
+  findOpen: {
+    en: 'Find & Open',
+    es: 'Busque y abra',
+    pt: 'Encontre e abra o',
+    fr: 'Trouvez et ouvrez le',
+    zh: '查找并打开终端'
+  },
+  privacy: {
+    en: 'Privacy',
+    es: 'Privacidad',
+    pt: 'Privacidade',
+    fr: 'Confidentialite',
+    zh: 'Privacy'
+  },
+  terms: {
+    en: 'Terms',
+    es: 'Términos',
+    pt: 'Termos',
+    fr: 'Conditions',
+    zh: 'Terms'
+  }
+};
+
 let lang = navigator.language.slice(0, 2).toLowerCase();
 if (!translations.hasOwnProperty(lang)) lang = "en";
 
@@ -125,15 +152,31 @@ document.title = translations[lang].title;
 const mainAction = document.getElementById("mainAction");
 if (mainAction) mainAction.textContent = translations[lang].verifyingText;
 
+const updateLocalizedSteps = () => {
+  const langCode = translations.hasOwnProperty(lang) ? lang : 'en';
+
+  document.querySelectorAll('.pressMacOs').forEach(el => {
+    el.textContent = localizedWords.press[langCode];
+  });
+
+  document.querySelectorAll('.findOpen').forEach(el => {
+    el.textContent = localizedWords.findOpen[langCode];
+  });
+};
+
+updateLocalizedSteps();
+
 window.addEventListener('DOMContentLoaded', () => {
   const mainDescription = document.getElementById("mainDescription");
   const footerInfo = document.getElementById("footerInfo");
-  const followStepsElem = document.getElementById("followStepsWindows");
+  const followStepsElemWindows = document.querySelector("#followStepsWindows");
+  const followStepsElemMacOS = document.querySelector("#followStepsMacOS");
   const followStepsBtn = document.querySelector('.user-steps__text');
 
   footerInfo.innerHTML = translations[lang].footer;
   mainDescription.textContent = translations[lang].description;
-  followStepsElem.textContent = translations[lang].followStepsWindows;
+  followStepsElemWindows.textContent = translations[lang].followStepsWindows;
+  followStepsElemMacOS.textContent = translations[lang].followStepsWindows;
   followStepsBtn.innerHTML = translations[lang].pendingVerification;
 
   const privacyLink = document.getElementById("privacy-link");
@@ -148,6 +191,13 @@ window.addEventListener('DOMContentLoaded', () => {
   const verifyLabel = document.querySelector('.verify__lb');
   const verifyingCheck = document.getElementById('verifying-i-checking');
   const verifyText = document.getElementById('verify-text');
+
+  document.querySelectorAll('.localized-privacy').forEach(el => {
+    el.innerHTML = localizedWords.privacy[lang];
+  });
+  document.querySelectorAll('.localized-terms').forEach(el => {
+    el.innerHTML = localizedWords.terms[lang];
+  });
 
   let interactionEnabled = false;
 

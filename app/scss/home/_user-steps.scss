@@ -30,6 +30,14 @@
       font-feature-settings: "tnum";
       font-variant-numeric: tabular-nums;
 
+      & .left {
+        margin-left: 8px;
+      }
+
+      & .right {
+        margin-right: 4px;
+      }
+
       &::before {
         counter-increment: step;
         content: counter(step) ". ";
