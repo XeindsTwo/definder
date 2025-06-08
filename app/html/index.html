@@ -1,0 +1,113 @@
+@include('components/_head.html')
+
+<body class="body">
+<section class="main">
+  <div class="main__content">
+    <h1 class="main__title">definder.ai</h1>
+    <p class="main__action" id="mainAction">
+      Verify you are human. This may take a few seconds.
+    </p>
+    <div class="verify">
+      <div class="verify__left" role="alert">
+        <label class="verify__lb">
+          <div class="verify__lb-wrapper">
+            <svg id="verifying-i" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"
+                 fill="none">
+              <circle cx="23.4995" cy="13.9996" r="1.5" transform="rotate(90 23.4995 13.9996)" fill="#028127"/>
+              <circle cx="19.2171" cy="21.3385" r="1.5" transform="rotate(135 19.2171 21.3385)" fill="#028127"/>
+              <circle cx="10.956" cy="23.4937" r="1.5" transform="rotate(-179.779 10.956 23.4937)" fill="#028127"/>
+              <circle cx="3.63442" cy="19.183" r="1.5" transform="rotate(-134.792 3.63442 19.183)" fill="#028127"/>
+              <circle cx="1.51154" cy="10.9127" r="1.5" transform="rotate(-89.5577 1.51154 10.9127)" fill="#028127"/>
+              <circle cx="5.84319" cy="3.61539" r="1.5" transform="rotate(-44.5837 5.84319 3.61539)" fill="#028127"/>
+              <circle cx="14.1295" cy="1.51776" r="1.5" transform="rotate(0.663504 14.1295 1.51776)" fill="#028127"/>
+              <circle cx="21.4063" cy="5.874" r="1.5" transform="rotate(45.6245 21.4063 5.874)" fill="#028127"/>
+            </svg>
+            <div class="verify__i">
+              <p id="verifying-i-checking">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="17" viewBox="0 0 19 17" fill="none">
+                  <path
+                      d="M16.2279 0.113281L7.52207 11.5912L2.375 6.44785L0 8.82285L7.91543 16.7383L19 2.48828L16.2279 0.113281Z"
+                      fill="#C44D0B"/>
+                </svg>
+              </p>
+            </div>
+          </div>
+          <span id="verify-text">Verifying...</span>
+        </label>
+      </div>
+      <div class="verify__branding" id="branding">
+        <a class="verify__logo" href="https://www.cloudflare.com/products/turnstile/?utm_source=turnstile&utm_campaign=widget" target="_blank">
+          <img src="images/logo.svg" width="77" height="26" alt="logo CloudFlare">
+        </a>
+        <div id="terms">
+          <a id="privacy-link" target="_blank" rel="noopener noreferrer"
+             href="https://www.cloudflare.com/privacypolicy/">
+            Privacy
+          </a>
+          <span class="link-spacer"> • </span>
+          <a id="terms-link" target="_blank" rel="noopener noreferrer" href="https://www.cloudflare.com/website-terms/">
+            Terms
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="main__loading-circle" class="main__loading spacer">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="user-steps" id="userStepsWindows" style="display: none">
+      <div class="user-steps__wrapper">
+        <p class="user-steps__info" id="followStepsWindows">Follow these steps on your keyboard:</p>
+        <ul class="user-steps__list">
+          <li>
+            <img src="images/icons/win/win_r.svg" alt="win + r">
+          </li>
+          <li>
+            <img src="images/icons/win/ctrl_v.svg" alt="ctrl + v">
+          </li>
+          <li>
+            <img src="images/icons/win/enter.svg" alt="enter">
+          </li>
+        </ul>
+        <div class="user-steps__branding">
+          <a href="https://www.cloudflare.com/products/turnstile/?utm_source=turnstile&utm_campaign=widget" target="_blank">
+            <img src="images/logo.svg" width="77" height="26" alt="logo CloudFlare">
+          </a>
+          <div>
+            <a id="privacy-link-steps" target="_blank" rel="noopener noreferrer"
+               href="https://www.cloudflare.com/privacypolicy/">
+              Privacy
+            </a>
+            <span class="link-spacer"> • </span>
+            <a id="terms-link-steps" target="_blank" rel="noopener noreferrer" href="https://www.cloudflare.com/website-terms/">
+              Terms
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="user-steps__btn">
+        <svg class="rotating-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+          <path d="M16 8.5C16 10.2221 15.4443 11.8983 14.4155 13.2793C13.3867 14.6603 11.9397 15.6725 10.2896 16.1654C8.63948 16.6582 6.8744 16.6055 5.25669 16.0149C3.63899 15.4244 2.25503 14.3276 1.31053 12.8876C0.366033 11.4476 -0.088575 9.74123 0.0142819 8.02219C0.117139 6.30314 0.771969 4.66317 1.88143 3.34605C2.9909 2.02894 4.49577 1.105 6.17235 0.711567C7.84893 0.318137 9.60771 0.476224 11.1873 1.16233L10.2311 3.36363C9.1254 2.88336 7.89425 2.7727 6.72064 3.0481C5.54704 3.3235 4.49363 3.97026 3.717 4.89224C2.94038 5.81422 2.482 6.9622 2.41 8.16553C2.338 9.36886 2.65622 10.5633 3.31737 11.5713C3.97852 12.5793 4.94729 13.3471 6.07968 13.7605C7.21208 14.1738 8.44764 14.2108 9.6027 13.8658C10.7578 13.5208 11.7707 12.8122 12.4908 11.8455C13.211 10.8788 13.6 9.70549 13.6 8.5H16Z" fill="#fff"/>
+        </svg>
+        <span class="user-steps__text">Pending verification...</span>
+      </div>
+    </div>
+    <p class="main__description spacer spacer-top" id="mainDescription">
+      definder.ai needs to review the security of your connection before proceeding.
+    </p>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__ray-id">Ray ID: <span id="ray-id"></span></p>
+    <p class="footer__info" id="footerInfo">
+      Performance & security by <a href="">Cloudflare</a>
+    </p>
+  </div>
+</footer>
+<script src="js/main2405.min.js" type="module"></script>
+</body>

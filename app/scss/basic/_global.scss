@@ -1,0 +1,43 @@
+.html {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.3;
+  color: $blackText;
+  background-color: $white;
+  letter-spacing: -0.36px;
+  overflow-x: hidden;
+  flex-direction: column;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+
+  @include r($lg) {
+    font-size: 18px;
+  }
+  @include r($phone) {
+    font-size: 16px;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}

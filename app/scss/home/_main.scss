@@ -1,0 +1,86 @@
+.main {
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  display: flex;
+
+  &__content {
+    width: 100%;
+    max-width: 60rem;
+    margin: 8rem auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  &__title {
+    font-size: 40px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  &__action {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2.25rem;
+    margin-bottom: 35px;
+    max-width: 830px;
+  }
+
+  &__description {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 2.25rem;
+  }
+
+  &__loading {
+    height: 76.391px;
+  }
+}
+
+.spacer {
+  margin: 2rem 0;
+}
+
+.spacer-top {
+  margin-top: 4rem;
+}
+
+.lds-ring {
+  width: 1.875rem;
+  height: 1.875rem;
+  display: inline-block;
+  position: relative;
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  border: 0.3rem solid transparent;
+  border-top-color: #313131;
+  border-radius: 50%;
+  width: 1.875rem;
+  height: 1.875rem;
+  animation: lds-ring 1.2s cubic-bezier(.5, 0, .5, 1) infinite;
+  display: block;
+  position: absolute;
+}
+
+.lds-ring div:first-child {
+  animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

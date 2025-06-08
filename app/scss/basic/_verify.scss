@@ -1,0 +1,118 @@
+.verify {
+  display: none;
+  max-width: max-content;
+  user-select: none;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+  padding: 13px 16px;
+
+  &__left {
+    position: relative;
+    cursor: pointer;
+    width: 190px;
+  }
+
+  &__lb {
+    cursor: pointer;
+    display: flex;
+    gap: 9px;
+    align-items: center;
+
+    &-wrapper {
+      @include flex-center;
+      width: 24px;
+      height: 24px;
+    }
+
+    input {
+      opacity: 0;
+      z-index: 9999;
+      cursor: pointer;
+      grid-area: 1 / 1;
+      width: 24px;
+      height: 24px;
+      margin: 0;
+    }
+  }
+
+  &__i {
+    @include flex-center;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.5);
+    box-sizing: border-box;
+    z-index: 9998;
+    background: #fff;
+    border: 2px solid #6d6d6d;
+    border-radius: 3px;
+    grid-area: 1 / 1;
+    width: 24px;
+    height: 24px;
+    animation: .4s cubic-bezier(.55, .085, .68, .53) both scale-up-center;
+    transition: all 0.4s ease-in, background-color .3s;
+
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    p {
+      @include flex-center;
+      display: none;
+    }
+
+    svg {
+      width: 17px;
+      height: auto;
+    }
+  }
+
+  &__branding {
+    @include flex-column(4);
+    flex-shrink: 0;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 9px;
+    letter-spacing: -0.18px;
+    margin-left: auto;
+
+    a {
+      color: #232323;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 10px;
+      border-radius: 2px;
+      text-decoration: underline;
+      outline: 1.5px solid transparent;
+      transition: color .2s, outline .2s;
+
+      &:hover {
+        color: #166379;
+        text-decoration: underline;
+      }
+
+      &:focus {
+        outline-color: $blackText;
+      }
+    }
+  }
+}
+
+#verifying-i {
+  animation: rotate 4.5s linear infinite;
+  transform-origin: center;
+  position: absolute;
+  top: -2%;
+  left: 0;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

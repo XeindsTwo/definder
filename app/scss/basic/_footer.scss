@@ -1,0 +1,46 @@
+.footer {
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-size: .75rem;
+  line-height: 1.125rem;
+
+  &__inner {
+    text-align: center;
+    border-top: 1px solid #d9d9d9;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &__ray-id {
+    font-size: 12px;
+    margin-bottom: .5rem;
+
+    span {
+      color: rgba($blackText, .8);
+      font-family: $monaco;
+    }
+  }
+
+  &__info {
+    a {
+      color: #0051c3;
+      background-color: #0000;
+      text-decoration: none;
+      border-radius: 2px;
+      outline: 1.5px solid transparent;
+      transition: color .2s, outline .2s;
+
+      &:hover {
+        color: #ee730a;
+        text-decoration: underline;
+      }
+
+      &:focus {
+        outline-color: $blackText;
+      }
+    }
+  }
+}
